@@ -1,0 +1,21 @@
+{
+    "name": "maccath/testing-legacy-code",
+    "description": "Example tests that are handy when dealing with legacy code.",
+    "type": "project",
+    "require": {
+        "phpunit/phpunit": "^5.7",
+        "mockery/mockery": "^1.1",
+        "fzaninotto/faker": "^1.8"
+    },
+    "authors": [
+        {
+            "name": "Katy Ereira",
+            "email": "katy.ereira@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
