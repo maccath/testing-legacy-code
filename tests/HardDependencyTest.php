@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Dependencies\Dependency;
 use App\HardDependency;
 
 class HardDependencyTest extends \PHPUnit_Framework_TestCase
@@ -23,7 +24,7 @@ class HardDependencyTest extends \PHPUnit_Framework_TestCase
 //    }
 
     /**
-     * Good test!
+     * Good test - bad code!
      *
      * @runInSeparateProcess
      */
@@ -38,6 +39,27 @@ class HardDependencyTest extends \PHPUnit_Framework_TestCase
         $hardDependency = new HardDependency();
 
         $result = $hardDependency->doSomething();
+
+        // Assert!
+        $this->assertEquals('a result', $result);
+    }
+
+    /**
+     * Good test - good code!
+     *
+     * @runInSeparateProcess
+     */
+    public function testInjectedDependency()
+    {
+        // Mock the injected dependency.
+        $mockDependency = \Mockery::mock(Dependency::class);
+
+        // Mock the ‘doSomething’ method.
+        $mockDependency->shouldReceive('doSomething')->andReturn('a result');
+
+        $hardDependency = new HardDependency();
+
+        $result = $hardDependency->doSomethingWithInjectedDependency($mockDependency);
 
         // Assert!
         $this->assertEquals('a result', $result);

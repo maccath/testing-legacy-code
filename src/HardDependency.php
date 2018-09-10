@@ -12,4 +12,9 @@ class HardDependency
 
         return $dependency->doSomething();
     }
+
+    public function doSomethingWithInjectedDependency($dependency)
+    {
+        return $dependency->doSomething();
+    }
 }
