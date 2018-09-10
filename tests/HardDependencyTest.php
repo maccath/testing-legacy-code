@@ -6,6 +6,11 @@ use App\HardDependency;
 
 class HardDependencyTest extends \PHPUnit_Framework_TestCase
 {
+    public function tearDown()
+    {
+        \Mockery::close();
+    }
+
     /**
      * Bad test
      */
@@ -19,6 +24,8 @@ class HardDependencyTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Good test!
+     *
+     * @runInSeparateProcess
      */
     public function testHardDependency()
     {
