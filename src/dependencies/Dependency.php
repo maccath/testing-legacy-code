@@ -8,4 +8,9 @@ class Dependency
     {
         throw new \Exception("No!");
     }
+
+    public static function doSomethingStatically()
+    {
+        throw new \Exception("No way!");
+    }
 }
